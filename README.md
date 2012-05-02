@@ -5,11 +5,11 @@ Cloudgate is the webUI client for Sector distributed file system. For more infor
 
 Prerequisites
 =============
-Perl 5.8
-PostgreSQL 8.3
-Ant 1.7
-Maven 2.2
-JDK 1.6
+* Perl 5.8
+* PostgreSQL 8.3
+* Ant 1.7
+* Maven 2.2
+* JDK 1.6
 
 Steps to setup Cloudgate
 ========================
