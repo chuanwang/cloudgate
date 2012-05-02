@@ -30,8 +30,6 @@ public class SystemDataCollector {
 
     private static final String TIME_FORMAT = "HH:mm:ss"; //$NON-NLS-1$
     
-    private static final String SIGAR_DLL = "C:/download/hyperic-sigar-1.6.3/hyperic-sigar-1.6.3/sigar-bin/lib/sigar-x86-winnt.dll"; //$NON-NLS-1$
-    
     /** Flag to indicate whether to stop collecting thread */
     private boolean shouldStop;
     
@@ -41,7 +39,6 @@ public class SystemDataCollector {
     
     
     public void start() {
-        //System.load(SIGAR_DLL); //$NON-NLS-1$
        
         // create deque to contain CPU data. It will hold 60 data points 
         // for one minute of during. So data collecting thread will collect
