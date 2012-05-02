@@ -1,0 +1,15 @@
+Sun Aug 22 12:39:04 2010           <dir>          Bonnie.10947
+Thu Jun 17 08:50:28 2010           <dir>          WorldMap
+Sun Aug 22 17:30:47 2010           <dir>          clients
+Wed Aug 25 11:21:24 2010           <dir>          html
+Sun Aug 22 13:40:02 2010           <dir>          test
+Sun Aug 22 12:39:04 2010           <dir>          test01
+Wed Aug 25 11:19:32 2010           <dir>          wordcount
+Tue Apr 21 23:47:51 2009           12579 bytes    .hoho
+Fri Mar 27 13:39:34 2009             692 bytes    .sector.log
+Fri Aug 20 21:59:55 2010      8589934592 bytes    Bonnie.10305
+Fri Aug 20 20:46:54 2010               0 bytes    Bonnie.9973
+Fri Aug 20 20:58:10 2010             497 bytes    Makefile
+Sat Sep 19 08:24:06 2009          140053 bytes    logg
+Fri Aug 20 21:43:42 2010            9972 bytes    sectorfs.cpp
+Fri Aug 20 21:43:49 2010            4748 bytes    sectorfs.h

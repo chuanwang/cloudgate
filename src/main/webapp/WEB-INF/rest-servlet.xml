@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="DataCollector" class="com.verycloud.datacollector.SystemDataCollector"
+        init-method="start" lazy-init="false" scope="singleton" destroy-method="stop">
+    </bean>
+    
+    <bean id="SectorClient" class="com.verycloud.datacollector.SectorClient"
+    	  init-method="init" lazy-init="false" scope="singleton" destroy-method="logout">
+    </bean>
+    
+    <bean id="root" class="org.restlet.ext.spring.SpringRouter">
+        <property name="attachments">
+            <map>
+                <entry key="/cpustatus">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="CpuStatusResource" />
+                    </bean>
+                </entry>
+                <entry key="/cpuseries">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="CpuDataSeriesResource" />
+                    </bean>
+                </entry>
+                <entry key="/memorystatus">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="MemoryStatusResource" />
+                    </bean>
+                </entry>
+                <entry key="/memoryseries">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="MemoryDataSeriesResource" />
+                    </bean>
+                </entry>
+                <entry key="/sectorstatus">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="SectorStatusResource" />
+                    </bean>
+                </entry>
+                <entry key="/clusterstatus">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="ClusterStatusResource" />
+                    </bean>
+                </entry>
+                <entry key="/slave/{slaveid}">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="SlaveNodeResource" />
+                    </bean>
+                </entry>
+                <entry key="/files">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="FilesResource" />
+                    </bean>
+                </entry>
+                <entry key="/filestat/{name}">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="FileStatResource" />
+                    </bean>
+                </entry>
+                <entry key="/users/{username}">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="SectorUserResource" />
+                    </bean>
+                </entry>
+                <entry key="/users">
+                    <bean class="org.restlet.ext.spring.SpringFinder">
+                        <lookup-method name="create" bean="SectorUsersResource" />
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="CpuStatusResource" class="com.verycloud.resources.CpuStatusResource" scope="prototype" >
+        <property name="collector" ref="DataCollector"></property>
+    </bean>   
+    
+    <bean id="MemoryStatusResource" class="com.verycloud.resources.MemoryStatusResource" scope="prototype" >
+        <property name="collector" ref="DataCollector"></property>
+    </bean>
+    
+    <bean id="CpuDataSeriesResource" class="com.verycloud.resources.CpuDataSeriesResource" scope="prototype" >
+        <property name="collector" ref="DataCollector"></property>
+    </bean>
+    
+    <bean id="MemoryDataSeriesResource" class="com.verycloud.resources.MemoryDataSeriesResource" scope="prototype" >
+        <property name="collector" ref="DataCollector"></property>
+    </bean>
+    
+    <bean id="SectorStatusResource" class="com.verycloud.resources.SectorStatusResource" scope="prototype" >
+    	<property name="sectorClient" ref="SectorClient"></property>
+    </bean>
+    
+    <bean id="ClusterStatusResource" class="com.verycloud.resources.ClusterStatusResource" scope="prototype" >
+    	<property name="sectorClient" ref="SectorClient"></property>
+    </bean>
+    
+    <bean id="SlaveNodeResource" class="com.verycloud.resources.SlaveNodeResource" scope="prototype" >
+    	<property name="sectorClient" ref="SectorClient"></property>
+    </bean>
+    
+    <bean id="FilesResource" class="com.verycloud.resources.FilesResource" scope="prototype" >
+    	<property name="sectorClient" ref="SectorClient"></property>
+    </bean>
+    
+    <bean id="FileStatResource" class="com.verycloud.resources.FileStatResource" scope="prototype" >
+    	<property name="sectorClient" ref="SectorClient"></property>
+    </bean>
+    
+    <bean id="SectorUserResource" class="com.verycloud.resources.SectorUserResource" scope="prototype" >
+    	<property name="sectorUserDao" ref="SectorUserDao"></property>
+    </bean>
+    
+    <bean id="SectorUsersResource" class="com.verycloud.resources.SectorUsersResource" scope="prototype" >
+    	<property name="sectorUserDao" ref="SectorUserDao"></property>
+    </bean>
+</beans>

@@ -1,0 +1,8 @@
+File Name: .hoho
+DIR: FALSE
+Size: 15613 bytes
+Last Modified: Thu Jun 10 22:04:36 2010
+Total Number of Replicas: 2
+Location:
+192.168.136.23:38945
+192.168.136.30:39234

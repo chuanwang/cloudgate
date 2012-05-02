@@ -1,0 +1,75 @@
+.sector-status {
+    border-style : solid;
+    border-width : 1px;
+    margin : 10px 0px 10px 0px;
+    background-color : #ADDFFF;
+}
+
+
+.cluster-status {
+    border-style : solid;
+    border-width : 1px;
+    margin : 10px 0px 10px 0px;
+}
+
+.cluster-info {
+    background-color: #ADDFFF;
+}
+
+.slave-block {
+    
+    border-style : solid;
+    border-width : 1px;
+    float : left;
+    display : block;
+    margin : 4px;
+    height : 30px;
+    width : 30px;
+    cursor : pointer;
+}
+
+.NORMAL {
+	background-color : #4CC417;
+}
+
+.DISKFULL {
+	background-color : #FFFF00;
+}
+
+.ERROR {
+	background-color : #F62217;
+}
+
+.DOWN {
+	background-color : #F62217;
+}
+
+.UNKNOWN {
+	background-color : #736F6E;
+}
+
+.cluster-status-clear {
+    clear : both;
+}
+
+.icon-user-add {
+    background-image : url(../images/user_add.png) !important;
+}
+
+.icon-user-edit {
+    background-image : url(../images/user_edit.png) !important;
+}
+
+.icon-user-delete {
+    background-image : url(../images/user_delete.png) !important;
+}
+
+/* Cancel button icon */
+.icon-cross {
+	background-image : url(../images/cross.png) !important;
+}
+
+/* Save button icon */
+.icon-save {
+	background-image : url(../images/database_save.png) !important;
+}

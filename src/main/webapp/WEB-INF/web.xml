@@ -1,0 +1,44 @@
+<!DOCTYPE web-app PUBLIC
+	 "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+	 "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Sample rest servlet</display-name>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+      		/WEB-INF/applicationContext.xml
+      		<!--/WEB-INF/applicationContext-security.xml-->
+      		/WEB-INF/spring_hibernate.xml
+		</param-value>
+	</context-param>
+
+<!--
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+ 
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+-->
+	<servlet>
+		<servlet-name>rest</servlet-name>
+		<servlet-class>
+			org.restlet.ext.spring.RestletFrameworkServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>rest</servlet-name>
+		<url-pattern>/resources/*</url-pattern>
+	</servlet-mapping>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+</web-app>
